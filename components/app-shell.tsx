@@ -32,7 +32,10 @@ export function ProtectedRoute({ children, requireAdmin }: { children: React.Rea
   }
 
   if (!user) {
-    if (typeof window !== 'undefined') window.location.href = '/login';
+    if (typeof window !== 'undefined') {
+      const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+      window.location.href = basePath + '/login/';
+    }
     return null;
   }
 
