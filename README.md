@@ -16,13 +16,12 @@
 
 ---
 
-## 🌐 Live Demo
+## 🔗 Project Links
 
-**[Open NetGuard AI – Login Page](https://symmetrical-space-memory-69jg6vg5j57q246x6-3000.app.github.dev/login)**
+- **Application (Login Page):** [https://symmetrical-space-memory-69jg6vg5j57q246x6-3000.app.github.dev/login](https://symmetrical-space-memory-69jg6vg5j57q246x6-3000.app.github.dev/login)
+- **GitHub Repository:** [https://github.com/Sm-m15/netguard-ai](https://github.com/Sm-m15/netguard-ai)
 
-> ⚠️ **Development preview only:** This is a GitHub Codespaces forwarded-port URL. It is not a permanent public deployment and may stop working when the Codespace stops or expires. Replace it with the permanent hosting URL after deployment.
-
-**Repository:** [github.com/Sm-m15/netguard-ai](https://github.com/Sm-m15/netguard-ai)
+> ⚠️ **Note:** The application link is a GitHub Codespaces preview URL. It may only work while the Codespace and forwarded port are active; it is not a permanent hosted deployment.
 
 ---
 
