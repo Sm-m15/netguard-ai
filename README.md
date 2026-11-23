@@ -18,10 +18,17 @@
 
 ## 🔗 Project Links
 
-- **Application (Login Page):** [https://symmetrical-space-memory-69jg6vg5j57q246x6-3000.app.github.dev/login](https://symmetrical-space-memory-69jg6vg5j57q246x6-3000.app.github.dev/login)
-- **GitHub Repository:** [https://github.com/Sm-m15/netguard-ai](https://github.com/Sm-m15/netguard-ai)
+- **Live Application (GitHub Pages):** https://sm-m15.github.io/netguard-ai/login/
+- **GitHub Repository:** https://github.com/Sm-m15/netguard-ai
+- **Codespaces Development Preview:** [Open preview](https://symmetrical-space-memory-69jg6vg5j57q246x6-3000.app.github.dev/login)
 
-> ⚠️ **Note:** The application link is a GitHub Codespaces preview URL. It may only work while the Codespace and forwarded port are active; it is not a permanent hosted deployment.
+> The GitHub Pages link is the permanent static-hosting address. The Codespaces preview is temporary and works only while its Codespace and forwarded port are active.
+
+## 🚀 GitHub Pages Deployment
+
+The project is configured to build as a static Next.js export for GitHub Pages. Every push to `main` triggers the GitHub Actions deployment workflow. The exported site is published from the `out/` directory.
+
+**Important demo limitation:** Authentication is currently in-memory demo authentication. A browser refresh clears the signed-in session, so sign in again after refreshing. The application uses sample/demo data and does not provide production authentication, a live network sensor, or a server-backed database.
 
 ---
 
