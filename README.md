@@ -18,17 +18,25 @@
 
 ## 🔗 Project Links
 
-- **Live Application (GitHub Pages):** https://sm-m15.github.io/netguard-ai/login/
-- **GitHub Repository:** https://github.com/Sm-m15/netguard-ai
-- **Codespaces Development Preview:** [Open preview](https://symmetrical-space-memory-69jg6vg5j57q246x6-3000.app.github.dev/login)
+- **Live Application:** [Open NetGuard AI](https://sm-m15.github.io/netguard-ai/)
+- **Login Page:** [Open the Login Page](https://sm-m15.github.io/netguard-ai/login/)
+- **GitHub Repository:** [View Source Code](https://github.com/Sm-m15/netguard-ai)
+- **Codespaces Development Preview:** [Open Preview](https://symmetrical-space-memory-69jg6vg5j57q246x6-3000.app.github.dev/login)
 
-> The GitHub Pages link is the permanent static-hosting address. The Codespaces preview is temporary and works only while its Codespace and forwarded port are active.
+> **Hosting note:** The GitHub Pages URL is the permanent static-hosting address. The Codespaces preview is temporary and works only while the Codespace and forwarded port are active.
+
+---
 
 ## 🚀 GitHub Pages Deployment
 
-The project is configured to build as a static Next.js export for GitHub Pages. Every push to `main` triggers the GitHub Actions deployment workflow. The exported site is published from the `out/` directory.
+This project is configured for static deployment on GitHub Pages using GitHub Actions.
 
-**Important demo limitation:** Authentication is currently in-memory demo authentication. A browser refresh clears the signed-in session, so sign in again after refreshing. The application uses sample/demo data and does not provide production authentication, a live network sensor, or a server-backed database.
+- The workflow builds the Next.js application as a static export.
+- The generated website files are published through GitHub Pages.
+- Pushes to the `main` branch trigger the configured deployment workflow.
+- The exported site is generated in the `out/` directory.
+
+**Live website:** https://sm-m15.github.io/netguard-ai/
 
 ---
 
@@ -65,7 +73,7 @@ The project demonstrates how network-flow information and security indicators ca
 
 ## 🧭 Application Workflow
 
-~~~mermaid
+```mermaid
 flowchart TD
     A[User opens NetGuard AI] --> B[Login]
     B --> C[Dashboard]
@@ -81,11 +89,11 @@ flowchart TD
     I --> L[Reports and review]
     J --> L
     K --> L
-~~~
+```
 
 ## 🏗️ System Architecture
 
-~~~mermaid
+```mermaid
 flowchart TB
     U[User / Security Analyst] --> UI[Next.js + React Interface]
     UI --> AUTH[Demo Authentication and Role Context]
@@ -102,7 +110,7 @@ flowchart TB
     API --> VALIDATE[CSV Validation]
     SAMPLE --> CHARTS[Recharts Visualizations]
     VALIDATE --> TRAFFIC
-~~~
+```
 
 **Architecture clarification:** Dashboard data services are implemented in the repository's application data layer and generate sample data. Supabase is listed as a dependency, but the presence of the package alone does not mean production authentication or a persistent database is configured. This diagram describes the current demo flow, not a live network sensor or production ML serving pipeline.
 
@@ -133,7 +141,7 @@ The interface is organized around a typical network-flow analysis process:
 
 The following is a reference pipeline for a future or separately integrated trained model. It is **not a claim that model training is implemented in this repository**.
 
-~~~mermaid
+```mermaid
 flowchart LR
     A[Network Flow Records] --> B[Data Cleaning]
     B --> C[Feature Engineering]
@@ -144,7 +152,7 @@ flowchart LR
     E --> H[Analyst Dashboard]
     F --> H
     G --> H
-~~~
+```
 
 A production implementation could evaluate tree-based classifiers such as Random Forest, XGBoost or LightGBM on a documented dataset. The selected algorithm, training configuration and evaluation results must be added only after the model is actually trained and tested.
 
@@ -173,11 +181,12 @@ The application uses **Recharts** for interactive data visualization. Depending 
 | [Radix UI](https://www.radix-ui.com/) | Accessible UI primitives |
 | [Lucide React](https://lucide.dev/) | Icons |
 | [Supabase JS](https://supabase.com/docs/reference/javascript/introduction) | Dependency available for backend integration |
-| [Netlify](https://docs.netlify.com/) | Deployment configuration included in repository |
+| [GitHub Actions](https://docs.github.com/en/actions) | Automated build and deployment |
+| [GitHub Pages](https://docs.github.com/en/pages) | Static website hosting |
 
 ## 📁 Project Structure
 
-~~~text
+```text
 netguard-ai/
 ├── app/
 │   ├── alerts/          # Alert management page
@@ -205,10 +214,13 @@ netguard-ai/
 │   ├── api.ts           # Demo data services and CSV logic
 │   ├── types.ts         # TypeScript data models
 │   └── utils.ts
-├── netlify.toml
+├── .github/
+│   └── workflows/
+│       └── deploy.yml   # GitHub Pages deployment workflow
+├── next.config.js
 ├── package.json
 └── README.md
-~~~
+```
 
 ## 💻 Run Locally
 
@@ -220,54 +232,41 @@ netguard-ai/
 
 ### 1. Clone the repository
 
-~~~bash
+```bash
 git clone https://github.com/Sm-m15/netguard-ai.git
 cd netguard-ai
-~~~
+```
 
 ### 2. Install dependencies
 
-~~~bash
+```bash
 npm install
-~~~
+```
 
 ### 3. Start the development server
 
-~~~bash
+```bash
 npm run dev
-~~~
+```
 
 ### 4. Open the application
 
-Visit [http://localhost:3000](http://localhost:3000). The login page is available at the /login route.
+Visit [http://localhost:3000](http://localhost:3000). The login page is available at the `/login` route.
 
 ### Available scripts
 
 | Command | Description |
 |---|---|
-| npm run dev | Start local development |
-| npm run build | Create a production build |
-| npm run start | Start the production server |
-| npm run typecheck | Run TypeScript type checking |
-| npm run lint | Run the configured lint command |
-
-## 🚀 Deployment
-
-A netlify.toml file is present in the repository and configures a Next.js build using the Netlify Next.js plugin.
-
-1. Sign in to [Netlify](https://www.netlify.com/) with GitHub.
-2. Choose **Add new project → Import an existing project**.
-3. Select **Sm-m15/netguard-ai**.
-4. Review the build settings from netlify.toml.
-5. Add any environment variables required by the code, if applicable.
-6. Deploy and verify the login and application routes.
-7. Replace the temporary Codespaces URL at the top of this README with the public deployment URL.
-
-A public deployment remains available independently of a running Codespace, subject to the hosting provider's account, deployment and usage conditions.
+| `npm run dev` | Start local development |
+| `npm run build` | Create a production build |
+| `npm run start` | Start the production server |
+| `npm run typecheck` | Run TypeScript type checking |
+| `npm run lint` | Run the configured lint command |
 
 ## 🔐 Security & Limitations
 
-- The login page labels the current authentication as demo authentication; do not enter real or reused passwords.
+- The login page uses demo authentication; do not enter real or reused passwords.
+- Refreshing the browser clears the in-memory signed-in session, so users may need to sign in again.
 - Sample IP addresses, user identities, traffic records and model metrics in the demo are illustrative.
 - Do not connect this demonstration to a production network or rely on its predictions for security decisions without implementing and validating the complete detection pipeline.
 - Keep API keys and secrets out of source control.
@@ -292,7 +291,8 @@ A public deployment remains available independently of a running Codespace, subj
 - [Tailwind CSS Documentation](https://tailwindcss.com/docs)
 - [Recharts Documentation](https://recharts.org/en-US/)
 - [Supabase Documentation](https://supabase.com/docs)
-- [Netlify Next.js Runtime](https://docs.netlify.com/frameworks/next-js/overview/)
+- [GitHub Pages Documentation](https://docs.github.com/en/pages)
+- [GitHub Actions Documentation](https://docs.github.com/en/actions)
 
 ---
 
